@@ -14,8 +14,8 @@ go:
 env:
   - "PATH=$HOME/gopath/bin:$PATH"
 
-before_install:
-  - go get 
+# before_install:
+#   - go get 
 
 script:
   - bash _release/build-all.sh
