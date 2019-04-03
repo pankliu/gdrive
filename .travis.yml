@@ -32,10 +32,12 @@ env:
 install:
     - sed -i 's/367116221053-7n0vf5akeru7on6o2fjinrecpdoe99eg.apps.googleusercontent.com/262618276336-glgjqtr05dmti8f4qv6ft44p9ts8iq8c.apps.googleusercontent.com/g;s/1qsNodXNaWq1mQuBjUjmvhoO/I2JmHM4kgVj4XJDx1oL7W0t0/g' handlers_drive.go
     - go get -d -v ./...
+    - apt update && apt install upx
 
 script:
   - pwd;ls -alth;whoami
   - bash _release/build-all.sh
+  - cd _release/bin; for i in `ls`;do upx $i ; done
 
 
 before_deploy:
@@ -59,11 +61,14 @@ deploy:
   target_commitish: $TRAVIS_COMMIT
   # $GIT_COMMIT
   name: $GIT_TAG
+  body: Automated release from Travis CI with added files from gdrive build
   # TRAVIS_TAG
   overwrite: true
   skip_cleanup: true
   on:
     branch: master
+    tags: $GIT_TAG
+  file_glob: true
   file:
     - "_release/bin/gdrive-dragonfly-x64"
     - "_release/bin/gdrive-freebsd-386"
