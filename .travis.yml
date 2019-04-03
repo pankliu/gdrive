@@ -56,7 +56,7 @@ deploy:
 
   tag_name: $GIT_TAG
   # $TRAVIS_TAG
-  target_commitish: $GIT_TAG
+  # target_commitish: $GIT_TAG
   # $GIT_COMMIT
   name: $GIT_TAG
   # TRAVIS_TAG
