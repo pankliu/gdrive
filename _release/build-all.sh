@@ -5,6 +5,7 @@ PLATFORMS="darwin/386 darwin/amd64 darwin/arm darwin/arm64 dragonfly/amd64 freeb
 
 BIN_PATH="_release/bin"
 
+
 # Initialize bin dir
 mkdir -p $BIN_PATH
 rm $BIN_PATH/* 2> /dev/null
