@@ -38,7 +38,8 @@ install:
 script:
   - pwd;ls -alth;whoami
   - bash _release/build-all.sh
-  - cd _release/bin; for i in `ls`;do upx $i ; done
+  # - cd _release/bin; for i in `ls`;do upx $i ; done
+  # - cd _release/bin; for i in `ls`;do upx $i ; done
 
 
 before_deploy:
