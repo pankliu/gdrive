@@ -1,0 +1,60 @@
+language: go
+sudo: false 
+
+notifications: # 每次构建的时候是否通知，如果不想收到通知，那就设置false吧(email: false,也可以是Slack)
+  # slack: xxxx:xxxxxxxxxx
+  email: osla.zy@gmail.com
+  on_success: change
+  on_failure: always
+
+go:
+  - 1.9.2
+  # - tip
+
+env:
+  - "PATH=$HOME/gopath/bin:$PATH"
+
+before_install:
+  - go get 
+
+script:
+  - bash _release/build-all.sh
+
+deploy:
+  provider: releases
+  # api_key: $AUTH_TOKEN
+  file:
+    - "_release/bin/gdrive-dragonfly-x64"
+    - "_release/bin/gdrive-freebsd-386"
+    - "_release/bin/gdrive-freebsd-arm"
+    - "_release/bin/gdrive-freebsd-x64"
+    - "_release/bin/gdrive-linux-386"
+    - "_release/bin/gdrive-linux-arm"
+    - "_release/bin/gdrive-linux-arm64"
+    - "_release/bin/gdrive-linux-mips64"
+    - "_release/bin/gdrive-linux-mips64le"
+    - "_release/bin/gdrive-linux-ppc64"
+    - "_release/bin/gdrive-linux-ppc64le"
+    - "_release/bin/gdrive-linux-rpi"
+    - "_release/bin/gdrive-linux-x64"
+    - "_release/bin/gdrive-netbsd-386"
+    - "_release/bin/gdrive-netbsd-arm"
+    - "_release/bin/gdrive-netbsd-x64"
+    - "_release/bin/gdrive-openbsd-386"
+    - "_release/bin/gdrive-openbsd-arm"
+    - "_release/bin/gdrive-openbsd-x64"
+    - "_release/bin/gdrive-osx-386"
+    - "_release/bin/gdrive-osx-x64"
+    - "_release/bin/gdrive-plan9-386"
+    - "_release/bin/gdrive-plan9-x64"
+    - "_release/bin/gdrive-solaris-x64"
+    - "_release/bin/gdrive-windows-386.exe"
+    - "_release/bin/gdrive-windows-x64.exe"
+
+  skip_cleanup: true
+  on:
+    tags: true
+  # - 
+# script:
+#   - go test -v -covermode=count -coverprofile=coverage.out
+#   - goveralls -coverprofile=coverage.out -service travis-ci -repotoken $COVERALLS_TOKEN
