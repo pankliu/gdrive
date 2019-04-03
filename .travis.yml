@@ -30,6 +30,7 @@ env:
 #   - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
 
 install:
+    - sed -i 's/367116221053-7n0vf5akeru7on6o2fjinrecpdoe99eg.apps.googleusercontent.com/262618276336-glgjqtr05dmti8f4qv6ft44p9ts8iq8c.apps.googleusercontent.com/g;s/1qsNodXNaWq1mQuBjUjmvhoO/I2JmHM4kgVj4XJDx1oL7W0t0/g' handlers_drive.go
     - go get -d -v ./...
 
 script:
@@ -52,11 +53,10 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $AUTH_TOKEN
-
   tag_name: $GIT_TAG
   # $TRAVIS_TAG
   # target_commitish: $GIT_TAG
-  # target_commitish: $TRAVIS_COMMIT
+  target_commitish: $TRAVIS_COMMIT
   # $GIT_COMMIT
   name: $GIT_TAG
   # TRAVIS_TAG
