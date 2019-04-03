@@ -48,6 +48,8 @@ before_deploy:
   - VERSION=$(_release/bin/gdrive-linux-x64 version | awk 'NR==1 {print $2}')
   - echo $VERSION
   - export GIT_TAG=$VERSION
+  - export GIT_TIME=$(date +%s)
+  # $VERSION
   - export TAG=false
   - if [ ! -z "$TRAVIS_TAG" ] ; then
         export GIT_TAG=$TRAVIS_TAG;
@@ -62,7 +64,9 @@ deploy:
   # target_commitish: $GIT_TAG
   # target_commitish: $TRAVIS_COMMIT
   # $GIT_COMMIT
-  tag_name: $TRAVIS_COMMIT
+  tag_name: $GIT_TIME
+  # $(date +%s)
+  # $TRAVIS_COMMIT
   name: $GIT_TAG-$TRAVIS_COMMIT
   #$GIT_TAG
   body: Automated release from Travis CI with added files from gdrive build
