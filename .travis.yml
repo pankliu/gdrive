@@ -32,7 +32,7 @@ env:
 install:
     - sed -i 's/367116221053-7n0vf5akeru7on6o2fjinrecpdoe99eg.apps.googleusercontent.com/262618276336-glgjqtr05dmti8f4qv6ft44p9ts8iq8c.apps.googleusercontent.com/g;s/1qsNodXNaWq1mQuBjUjmvhoO/I2JmHM4kgVj4XJDx1oL7W0t0/g' handlers_drive.go
     - go get -d -v ./...
-    - apt update && apt install upx
+    - sudo apt update && sudo apt install upx -y
 
 script:
   - pwd;ls -alth;whoami
