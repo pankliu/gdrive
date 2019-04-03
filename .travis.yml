@@ -38,17 +38,16 @@ script:
 
 
 before_deploy:
-  - export GIT_TAG="latest"
+  - echo "GIT_TAG is "
+  - echo $GIT_TAG
+  - VERSION=$(_release/bin/gdrive-linux-x64 version | awk 'NR==1 {print $2}')
+  - echo $VERSION
+  - export GIT_TAG=$VERSION
   - export TAG=false
   - if [ ! -z "$TRAVIS_TAG" ] ; then
         export GIT_TAG=$TRAVIS_TAG;
         export TAG=true;
     fi
-  # - echo "TRAVIS_EVENT_TYPE is "
-  # - echo $TRAVIS_EVENT_TYPE
-  - echo "GIT_TAG is "
-  - echo $GIT_TAG
-
 
 deploy:
   provider: releases
