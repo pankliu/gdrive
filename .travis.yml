@@ -57,6 +57,7 @@ deploy:
   tag_name: $GIT_TAG
   # $TRAVIS_TAG
   # target_commitish: $GIT_TAG
+  # target_commitish: $TRAVIS_COMMIT
   # $GIT_COMMIT
   name: $GIT_TAG
   # TRAVIS_TAG
@@ -65,32 +66,32 @@ deploy:
   on:
     branch: master
   file:
-    # - "_release/bin/gdrive-dragonfly-x64"
-    # - "_release/bin/gdrive-freebsd-386"
-    # - "_release/bin/gdrive-freebsd-arm"
-    # - "_release/bin/gdrive-freebsd-x64"
-    # - "_release/bin/gdrive-linux-386"
-    # - "_release/bin/gdrive-linux-arm"
-    # - "_release/bin/gdrive-linux-arm64"
-    # - "_release/bin/gdrive-linux-mips64"
-    # - "_release/bin/gdrive-linux-mips64le"
-    # - "_release/bin/gdrive-linux-ppc64"
-    # - "_release/bin/gdrive-linux-ppc64le"
-    # - "_release/bin/gdrive-linux-rpi"
-    # - "_release/bin/gdrive-linux-x64"
-    # - "_release/bin/gdrive-netbsd-386"
-    # - "_release/bin/gdrive-netbsd-arm"
-    # - "_release/bin/gdrive-netbsd-x64"
-    # - "_release/bin/gdrive-openbsd-386"
-    # - "_release/bin/gdrive-openbsd-arm"
-    # - "_release/bin/gdrive-openbsd-x64"
+    - "_release/bin/gdrive-dragonfly-x64"
+    - "_release/bin/gdrive-freebsd-386"
+    - "_release/bin/gdrive-freebsd-arm"
+    - "_release/bin/gdrive-freebsd-x64"
+    - "_release/bin/gdrive-linux-386"
+    - "_release/bin/gdrive-linux-arm"
+    - "_release/bin/gdrive-linux-arm64"
+    - "_release/bin/gdrive-linux-mips64"
+    - "_release/bin/gdrive-linux-mips64le"
+    - "_release/bin/gdrive-linux-ppc64"
+    - "_release/bin/gdrive-linux-ppc64le"
+    - "_release/bin/gdrive-linux-rpi"
+    - "_release/bin/gdrive-linux-x64"
+    - "_release/bin/gdrive-netbsd-386"
+    - "_release/bin/gdrive-netbsd-arm"
+    - "_release/bin/gdrive-netbsd-x64"
+    - "_release/bin/gdrive-openbsd-386"
+    - "_release/bin/gdrive-openbsd-arm"
+    - "_release/bin/gdrive-openbsd-x64"
     - "_release/bin/gdrive-osx-386"
     - "_release/bin/gdrive-osx-x64"
-    # - "_release/bin/gdrive-plan9-386"
-    # - "_release/bin/gdrive-plan9-x64"
-    # - "_release/bin/gdrive-solaris-x64"
-    # - "_release/bin/gdrive-windows-386.exe"
-    # - "_release/bin/gdrive-windows-x64.exe"
+    - "_release/bin/gdrive-plan9-386"
+    - "_release/bin/gdrive-plan9-x64"
+    - "_release/bin/gdrive-solaris-x64"
+    - "_release/bin/gdrive-windows-386.exe"
+    - "_release/bin/gdrive-windows-x64.exe"
 
 
 
