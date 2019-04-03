@@ -57,13 +57,14 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $AUTH_TOKEN
-  tag_name: $GIT_TAG
+  tag_name: "$GIT_TAG"-"$TRAVIS_COMMIT"
   # $TRAVIS_TAG
   # target_commitish: $GIT_TAG
   # target_commitish: $TRAVIS_COMMIT
   # $GIT_COMMIT
-  name: $GIT_TAG
-  # body: Automated release from Travis CI with added files from gdrive build
+  name: "$GIT_TAG"-"$TRAVIS_COMMIT"
+  #$GIT_TAG
+  body: Automated release from Travis CI with added files from gdrive build
   # TRAVIS_TAG
   overwrite: true
   skip_cleanup: true
