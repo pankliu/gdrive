@@ -5,7 +5,7 @@ branches:
     only:
     - master
     - /v\d+\.\d+[a-z]/
-    
+
 notifications: # 每次构建的时候是否通知，如果不想收到通知，那就设置false吧(email: false,也可以是Slack)
   # slack: xxxx:xxxxxxxxxx
   email: osla.zy@gmail.com
@@ -67,9 +67,17 @@ deploy:
     - "_release/bin/gdrive-windows-386.exe"
     - "_release/bin/gdrive-windows-x64.exe"
 
+
+  tag_name: $TRAVIS_TAG
+  target_commitish: $TRAVIS_COMMIT
+  name: $TRAVIS_TAG
+  overwrite: true
   skip_cleanup: true
   on:
-    tags: true
+    branch: master
+  # skip_cleanup: true
+  # on:
+  #   tags: true
   # - 
 # script:
 #   - go test -v -covermode=count -coverprofile=coverage.out
