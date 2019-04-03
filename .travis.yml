@@ -57,7 +57,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $AUTH_TOKEN
-  tag_name: $GIT_TAG-$TRAVIS_COMMIT
+  tag_name: $GIT_TAG$TRAVIS_COMMIT
   # $TRAVIS_TAG
   # target_commitish: $GIT_TAG
   # target_commitish: $TRAVIS_COMMIT
