@@ -1,6 +1,11 @@
 language: go
 sudo: false 
 
+branches:
+    only:
+    - master
+    - /v\d+\.\d+[a-z]/
+    
 notifications: # 每次构建的时候是否通知，如果不想收到通知，那就设置false吧(email: false,也可以是Slack)
   # slack: xxxx:xxxxxxxxxx
   email: osla.zy@gmail.com
